@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
+import gzip
 import pandas as pd
 import traceback
 import os
-import joblib, gzip
 
 
 app = Flask(__name__) 
