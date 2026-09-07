@@ -15,6 +15,11 @@ with gzip.open("car_pricemodel_binary_compressed.pkl.gz", "rb") as f:
   model = joblib.load(f)
 encoder = joblib.load("encoders.pkl")
 
+@app.route("/health", methods=["GET"])
+@app.route("/", methods=["GET"])
+def health_check():
+    return jsonify({"status": "healthy", "message": "Service is running"}), 200
+
 @app.route("/data", methods=["POST"])
 def receive_data():
     try:
